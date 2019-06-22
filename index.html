@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://unpkg.com/css-doodle@0.7.1/css-doodle.min.js"></script>
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0px;
+        }
+
+        div#background {
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            position: fixed;
+            z-index: -1;
+            top:0px;
+        }
+        #countent
+        {
+            color: wheat;
+            font-size: 24px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="background">
+        <css-doodle>
+            :doodle {
+            @grid: 5 / 100vmax;
+            background: black;
+            }
+            @shape:star;
+            background:red;
+            @size:@rand(150,75)px;
+            transform:rotate(@rand(0,180)deg);
+            
+            animation-name:star;
+            animation-duration: @rand(2,10)s;
+            animation-iteration-count:infinite;
+            animation-timing-function:linear;
+            position: absolute;
+
+            @place-cell:@rand(0,100)%-100px;
+
+            top:@rand(0,100)%;
+            left: @rand(0,100)%;
+
+            @keyframes star
+            {
+                0%
+                {
+                    opacity:1.0;
+                    top:0px;
+                }
+                50%
+                {
+                    opacity:0.5;
+                    
+                    background: rgb(@rand(0,255),@rand(0,255),@rand(0,255));
+                }
+                99.99%
+                {
+                    top:110vh;
+                }
+                100%
+                {
+                    top:0px;
+                    opacity:1.0;
+                }
+            }
+            
+        </css-doodle>
+        
+    </div>
+    <div id="countent">test css doodle</div>
+
+</body>
+
+</html>
